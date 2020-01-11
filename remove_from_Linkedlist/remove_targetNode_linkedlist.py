@@ -6,6 +6,9 @@ Created on Fri Jan 10 19:32:01 2020
 @author: Akash Tyagi
 """
 
+#Question: https://leetcode.com/problems/remove-linked-list-elements/
+
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
