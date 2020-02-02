@@ -17,6 +17,8 @@ Logic - Find the biggest no. in array and make every no equal to that number's d
 if max. no is 234, so its decimal no is 3, so make every no. of 3 digit.
 
 Then create a bucket from 0-9 and with every pass arrange value according to decimal position.
+
+For, String sorting, buckets are made as 0-26
 '''
 
 nums = [4,123,34,75,54,13]
