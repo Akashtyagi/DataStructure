@@ -11,6 +11,8 @@ Explanation: https://www.youtube.com/watch?v=JMlYkE8hGJM
 
 Fastest sorting algo in term of time complexity.
 
+* Redix sort maintains Locality of reference i.e If 3 occurs twice, then the 3 which occured first will present first in sorted array.
+
 Different from counting sort as it does not need to make new array of k size, where k = max(arr)     
 
 Logic - Find the biggest no. in array and make every no equal to that number's decimal count. 
@@ -40,12 +42,13 @@ for passes in range(0,total_passes): # Time Complexity: k
     for i in sorted_arr: # Time Complexity: N
         n = int((i/10**passes)%10)
         sorted_dict[n].append(i)
-
+    print(f"For decimal Position: {passes} \n\t {sorted_dict}")
+    
 sorted_arr = []
 for i in range(0,10): # Time Complexity: 10
     sorted_arr.extend(sorted_dict[i])
 
-print("Unsorted Array: ",nums)
+print("\nUnsorted Array: ",nums)
 print("Sorted Array: ",sorted_arr)
     
 '''    
@@ -58,4 +61,19 @@ Total Time Complexity:
 # =============================================================================
 # So total time complexity: Nk
 # =============================================================================
+
+'''
+Output
+
+For decimal Position: 0 
+         defaultdict(<class 'list'>, {4: [4, 34, 54], 3: [123, 13], 5: [75]})
+For decimal Position: 1 
+         defaultdict(<class 'list'>, {4: [], 3: [34], 5: [54], 0: [4], 1: [13], 2: [123], 6: [], 7: [75], 8: [], 9: []})
+For decimal Position: 2 
+         defaultdict(<class 'list'>, {4: [], 3: [], 5: [], 0: [4, 13, 34, 54, 75], 1: [123], 2: [], 6: [], 7: [], 8: [], 9: []})
+
+Unsorted Array:  [4, 123, 34, 75, 54, 13]
+Sorted Array:  [4, 13, 34, 54, 75, 123]
+
+'''
     

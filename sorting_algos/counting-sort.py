@@ -56,16 +56,73 @@ for i in nums: # For every occurance of value in nums increase its index value i
     log[i]+=1
 
 for i in range(min_,max_+1):
-    print("log[i] =log[i]+ log[i-1]",i,log[i],log[i]+log[i-1])
+    print(f"log[i] =log[i]+ log[i-1] i:{i} {log[i]}= {log[i]}+{log[i-1]} ")
     log[i] = log[i]+ log[i-1]
     
+
+print("\nDictionary: This tells the correct postiton of each element")
+# Below loop only for explanation purpose.
+for d in log:       
+    if d in nums:
+        print(f'\t {d}:{log[d]}')
+    
 sorted_array = [0]*len(nums)
+print("\nPostion of 'i' in new sorted array")
 for i in nums:
     x = log[i]
     sorted_array[x-1] = i
+    print(f" i={i}, sorted_array[{x-1}]={i}")
     if x>0:
+        print(f"\t{i}:{log[i]} -> {i}:{log[i]-1}")
         log[i]-=1
 
-print("Unsorted Array: ",nums)
+print("\nUnsorted Array: ",nums)
 print("Sorted Array: ",sorted_array)
+
+'''
+Output:
+
+log[i] =log[i]+ log[i-1] i:-7 1= 1+0 
+log[i] =log[i]+ log[i-1] i:-6 0= 0+1 
+log[i] =log[i]+ log[i-1] i:-5 0= 0+1 
+log[i] =log[i]+ log[i-1] i:-4 1= 1+1 
+log[i] =log[i]+ log[i-1] i:-3 0= 0+2 
+log[i] =log[i]+ log[i-1] i:-2 0= 0+2 
+log[i] =log[i]+ log[i-1] i:-1 0= 0+2 
+log[i] =log[i]+ log[i-1] i:0 0= 0+2 
+log[i] =log[i]+ log[i-1] i:1 1= 1+2 
+log[i] =log[i]+ log[i-1] i:2 1= 1+3 
+log[i] =log[i]+ log[i-1] i:3 0= 0+4 
+log[i] =log[i]+ log[i-1] i:4 1= 1+4 
+log[i] =log[i]+ log[i-1] i:5 0= 0+5 
+log[i] =log[i]+ log[i-1] i:6 0= 0+5 
+log[i] =log[i]+ log[i-1] i:7 0= 0+5 
+log[i] =log[i]+ log[i-1] i:8 0= 0+5 
+log[i] =log[i]+ log[i-1] i:9 1= 1+5 
+
+Dictionary: This tells the correct postiton of each element
+         -4:2
+         1:3
+         9:6
+         4:5
+         2:4
+         -7:1
+
+Postion of 'i' in new sorted array
+ i=-4, sorted_array[1]=-4
+        -4:2 -> -4:1
+ i=1, sorted_array[2]=1
+        1:3 -> 1:2
+ i=9, sorted_array[5]=9
+        9:6 -> 9:5
+ i=4, sorted_array[4]=4
+        4:5 -> 4:4
+ i=2, sorted_array[3]=2
+        2:4 -> 2:3
+ i=-7, sorted_array[0]=-7
+        -7:1 -> -7:0
+
+Unsorted Array:  [-4, 1, 9, 4, 2, -7]
+Sorted Array:  [-7, -4, 1, 2, 4, 9]
+'''
 

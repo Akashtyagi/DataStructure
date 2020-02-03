@@ -43,6 +43,20 @@ for i in range(l):
         max_val = nums[i]
         answer = i
 print("\nMost repeating element: ",answer)
+
+'''
+Output:
+
+i:0, nums[i]= 1 -->1 = 1 nums[1] = 1+6=7
+i:1, nums[i]= 7 -->1 = 1 nums[1] = 7+6=13
+i:2, nums[i]= 2 -->2 = 2 nums[2] = 2+6=8
+i:3, nums[i]= 2 -->2 = 2 nums[2] = 8+6=14
+i:4, nums[i]= 2 -->2 = 2 nums[2] = 14+6=20
+i:5, nums[i]= 4 -->4 = 4 nums[4] = 2+6=8
+i:6, nums[i]= 24 -->0 = 0 nums[0] = 1+6=7
+
+Most repeating element:  6
+'''
     
 
 

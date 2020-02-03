@@ -53,6 +53,60 @@ nlist = [3,5,2,9,7,1]
 Mergesort(nlist)
 
 print("Sorted list: ",nlist)
+
+'''
+Output:
+
+Spliting:  [3, 5, 2, 9, 7, 1]
+Spliting:  [3, 5, 2]
+Spliting:  [3]
+Merging:  [3]
+Spliting:  [5, 2]
+Spliting:  [5]
+Merging:  [5]
+Spliting:  [2]
+Merging:  [2]
+Yaha khel hai:  [5] [2]
+        Sorting:  5  ?  2
+                 Sorted->  [2, 5] 
+        
+Merging:  [2, 5]
+Yaha khel hai:  [3] [2, 5]
+        Sorting:  3  ?  2
+        Sorting:  3  ?  5
+                 Sorted->  [2, 3, 5] 
+        
+Merging:  [2, 3, 5]
+Spliting:  [9, 7, 1]
+Spliting:  [9]
+Merging:  [9]
+Spliting:  [7, 1]
+Spliting:  [7]
+Merging:  [7]
+Spliting:  [1]
+Merging:  [1]
+Yaha khel hai:  [7] [1]
+        Sorting:  7  ?  1
+                 Sorted->  [1, 7] 
+        
+Merging:  [1, 7]
+Yaha khel hai:  [9] [1, 7]
+        Sorting:  9  ?  1
+        Sorting:  9  ?  7
+                 Sorted->  [1, 7, 9] 
+        
+Merging:  [1, 7, 9]
+Yaha khel hai:  [2, 3, 5] [1, 7, 9]
+        Sorting:  2  ?  1
+        Sorting:  2  ?  7
+        Sorting:  3  ?  7
+        Sorting:  5  ?  7
+                 Sorted->  [1, 2, 3, 5, 7, 9] 
+        
+Merging:  [1, 2, 3, 5, 7, 9]
+Sorted list:  [1, 2, 3, 5, 7, 9]
+
+'''
         
                 
         

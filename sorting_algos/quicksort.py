@@ -48,3 +48,17 @@ def quicksort(nums,start=None,end=None):
 if __name__ == "__main__":
     nums = [4,7,2,4,1,9,6,5]
     print("\nSorted Array: ",quicksort(nums))
+
+
+''' 
+Output:
+
+[4, 7, 2, 4, 1, 9, 6, 5]  Start  0  End  7
+[4, 1, 2]  Start  0  End  2
+[2, 1]  Start  0  End  1
+[7, 9, 6, 5]  Start  4  End  7
+[6, 5]  Start  4  End  5
+
+Sorted Array:  [1, 2, 4, 4, 5, 6, 7, 9]
+
+'''
