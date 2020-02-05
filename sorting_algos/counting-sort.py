@@ -53,11 +53,11 @@ min_ = min(nums)
 log = defaultdict(int)
 
 for i in nums: # For every occurance of value in nums increase its index value in log-array by 1. 
-    log[i]+=1
+    log[i]+=1   # Complexity: n
 
 for i in range(min_,max_+1):
     print(f"log[i] =log[i]+ log[i-1] i:{i} {log[i]}= {log[i]}+{log[i-1]} ")
-    log[i] = log[i]+ log[i-1]
+    log[i] = log[i]+ log[i-1]  # Complexity: k , where K is range between min_,max_.
     
 
 print("\nDictionary: This tells the correct postiton of each element")
@@ -66,9 +66,9 @@ for d in log:
     if d in nums:
         print(f'\t {d}:{log[d]}')
     
-sorted_array = [0]*len(nums)
+sorted_array = [0]*len(nums) # Complexity: n
 print("\nPostion of 'i' in new sorted array")
-for i in nums:
+for i in nums:  # Complexity: n
     x = log[i]
     sorted_array[x-1] = i
     print(f" i={i}, sorted_array[{x-1}]={i}")
@@ -79,9 +79,19 @@ for i in nums:
 print("\nUnsorted Array: ",nums)
 print("Sorted Array: ",sorted_array)
 
+# =============================================================================
+# Complexity Analysis
+# =============================================================================
 '''
-Output:
+Time Complexity = n+k+n+n = n+k
+Space Complexity = log(k) + sorted_Array(n) = n+k
+'''
 
+
+# =============================================================================
+# Output:
+# =============================================================================
+'''
 log[i] =log[i]+ log[i-1] i:-7 1= 1+0 
 log[i] =log[i]+ log[i-1] i:-6 0= 0+1 
 log[i] =log[i]+ log[i-1] i:-5 0= 0+1 

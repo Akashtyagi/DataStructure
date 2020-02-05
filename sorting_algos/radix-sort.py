@@ -30,41 +30,47 @@ max_ = max(nums) # Time Complexity: N
 total_passes = len(str(max_))
 from collections import defaultdict
 sorted_dict = defaultdict(list)
-sorted_arr =  nums
+sorted_arr =  nums  # Space Complexity: n
 
 
 for passes in range(0,total_passes): # Time Complexity: k
     if len(sorted_dict)>0:
-        sorted_arr = []
+        sorted_arr = [] 
         for i in range(0,10) : # Time Complexity: 10
-            sorted_arr.extend(sorted_dict[i])
-            sorted_dict[i]=[]
+            sorted_arr.extend(sorted_dict[i]) 
+            sorted_dict[i]=[]   
     for i in sorted_arr: # Time Complexity: N
         n = int((i/10**passes)%10)
-        sorted_dict[n].append(i)
+        sorted_dict[n].append(i)   
     print(f"For decimal Position: {passes} \n\t {sorted_dict}")
     
-sorted_arr = []
+sorted_arr = [] # Space complexity: n
 for i in range(0,10): # Time Complexity: 10
     sorted_arr.extend(sorted_dict[i])
 
 print("\nUnsorted Array: ",nums)
 print("Sorted Array: ",sorted_arr)
-    
+
+# =============================================================================
+# Complexity Analysis
+# =============================================================================
 '''    
-Total Time Complexity:
+Time Complexity:
     = N + k(10+N) + 10 
     = N + 10k + Nk + 10
     = N(k+1) + 10(k+1)
     = Nk --> Ignoring Constant
+    
+Time Complexity = Nk
+Space Complexity = n + 10(k) = n+k = As we have integers here so we had 0-9, so 10 was choosed, for char it can be 26, 
+as it is variable and using a dict space, it is treated as K.
 '''    
-# =============================================================================
-# So total time complexity: Nk
-# =============================================================================
 
+
+# =============================================================================
+# Output
+# =============================================================================
 '''
-Output
-
 For decimal Position: 0 
          defaultdict(<class 'list'>, {4: [4, 34, 54], 3: [123, 13], 5: [75]})
 For decimal Position: 1 

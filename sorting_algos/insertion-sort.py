@@ -16,11 +16,11 @@ i = 1
 
 print("Target list: ",x,"\n")
 
-for i in range(1,l): # Pointer Iterates till end of list
+for i in range(1,l): # Pointer Iterates till end of list  # Complexity:n-1
     key = i
     prev = i-1
     print(f" --KEY: {x[key]}--")
-    while prev>0 and x[prev]>x[key]: # Check if Previous is bigger than Key.
+    while prev>0 and x[prev]>x[key]: # Check if Previous is bigger than Key. # Complexity: n
         temp = x[key]
         x[key] = x[prev]
         x[prev] = temp      # Swap prev <--> target
@@ -33,5 +33,15 @@ for i in range(1,l): # Pointer Iterates till end of list
 print(f"Sorted List: {x}")
 
 # =============================================================================
-# Worst Case Complexity - N**2
+# Complexity Analysis
 # =============================================================================
+'''
+Outer loop will run (n-1)times.
+While loop contains 2 condition.
+    1. For prev>0, for i=n , prev = n-1, so it will run min (n-1) times.
+    2. x[prev]>x[key], in worst case, say reversed array, this condition will always be True, so this loop will run min (n) times.
+    
+Therefore, 
+    Time-complexity = (n-1)*[(n-1)+(n-1)] = n**2
+    Space-complexity = 1 = Swap operations no extra space needed.
+'''
