@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;java_cp.greeb_yellow_stairs&apos; to &apos;green_yellow_stairs&apos;&#x0A;- Original project: &apos;java_cp&apos;&#x0A;- Original element: &apos;java_cp.greeb_yellow_stairs&apos;&#x0A;- Renamed element: &apos;java_cp.green_yellow_stairs&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;greeb_yellow_stairs&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;java_cp{greeb_yellow_stairs.java[greeb_yellow_stairs" matchStrategy="1" name="green_yellow_stairs" qualified="false" references="true" similarDeclarations="false" stamp="1565075247341" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,216 @@
+package java_cp;
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+public class Demo {
+	
+static class SinglyLinkedListNode 
+{
+        public int data;
+        public SinglyLinkedListNode next;
+
+        public SinglyLinkedListNode(int nodeData) {
+            this.data = nodeData;
+            this.next = null;
+        }
+    }
+
+    static class SinglyLinkedList {
+        public SinglyLinkedListNode head;
+        public SinglyLinkedListNode tail;
+
+        public SinglyLinkedList() {
+            this.head = null;
+            this.tail = null;
+        }
+
+        public void insertNode(int nodeData) {
+            SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+
+            if (this.head == null) {
+                this.head = node;
+            } else {
+                this.tail.next = node;
+            }
+
+            this.tail = node;
+        }
+    }
+
+    public static void printList(SinglyLinkedListNode head,String sep)
+	{
+    	SinglyLinkedListNode pointer = head;
+		while(pointer!= null)
+		{
+			System.out.printf(pointer.data + " ");
+			pointer = pointer.next;
+		}
+		System.out.println();
+	}
+
+    static SinglyLinkedListNode mergeLists(SinglyLinkedListNode h1, SinglyLinkedListNode h2) 
+    {
+    	SinglyLinkedListNode h2_next;
+    	SinglyLinkedListNode h1_next;
+    	SinglyLinkedListNode mergelist;
+    	if(h1.data<h2.data)
+    	{
+    		mergelist = h1;
+    	}
+    	else
+    	{
+    		mergelist = h2;
+    	}
+    	
+    	
+    	int count = 0;
+    	while(h1.next != null)
+    	{
+    		System.out.println("Updated ");
+    		printList(mergelist," ");
+//    		if (count>5)
+//    		{
+//    			return h2; 
+//    		}
+    		count+=1;
+    		if(h1.data>h2.data)
+    		{
+//    			System.out.println("New H1: "+h1.next.data);
+    			if(h1.data<h2.next.data) 
+    			{
+    				h1_next = h1.next;
+    				h2_next = h2.next;
+    				h2.next=h1;
+    				h2.next.next = h2_next;
+    				h2 = h1;
+    				if(h1.next == null)
+    				{
+    					return mergelist; //h1 exausted
+    				}
+    				System.out.println("Same New H1: "+h1_next.data);
+    				h1=h1_next;
+    			}
+    			else
+    			{
+    				if(h2.next == null)
+    				{
+    					return mergelist;
+    				}
+    				h2=h2.next;
+    			}
+    		}
+    		else
+    		{
+    			if(h1.data > h2.next.data)
+    	    	{	
+    				h1_next = h1.next;
+    	    		h2_next = h2.next;
+    	    		h1.next = h2;
+    	    		h2 = h1;
+    	    		h2.next.next = h2_next;
+    	    		h1 = h1_next;
+    	    	}
+    			else
+    			{
+    				h1_next = h1.next;
+    				h2_next = h2.next;
+    				h1.next = h2;
+    				h2 = h1;
+    				h1 = h1_next;
+    			}
+//    			h1=h1.next;
+    		}
+    		System.out.print("h1 ");
+    		printList(h1, " ");
+    		System.out.print("\nh2 ");
+    		printList(h2, " ");
+    		
+    	}
+    	System.out.println("While ke bahar");
+    	while(h2.next!=null)
+    	{
+    		System.out.println("Updated ");
+    		printList(mergelist," ");
+    		System.out.print("h1 ");
+    		printList(h1, " ");
+    		System.out.print("h2 ");
+    		printList(h2, " ");
+    		if(h1.data<h2.data)
+        	{
+    			
+        		if(h1.data>h2.next.data)
+        		{
+        			System.out.println("Andar aya");
+        			h2_next = h2.next;
+        			h2.next = h1;
+        			h2.next.next = h2_next;
+        		}
+        		else
+        		{
+        			if(h2.next == null)
+        			{
+        				return mergelist;
+        			}
+        			h2 = h2.next;
+        		}
+        	}
+    		else
+    		{
+    			System.out.println("H2 age kro");
+    			if(h1.data<h2.next.data)
+        		{
+        			System.out.println("Andar aya");
+        			h1_next = h1;
+        			h2_next = h2.next;
+        			h2.next = h1;
+        			h2.next.next = h2_next;
+        			h2 = h2.next;
+        			return mergelist;
+        		}
+    			else
+    			{
+    				h2 = h2.next;
+    			}
+    			
+    		}
+    		System.out.print("h1 ");
+    		printList(h1, " ");
+    		System.out.print("\nh2 ");
+    		printList(h2, " ");
+    	}
+    	return mergelist;
+    	
+    }
+
+    public static void main(String[] args) throws IOException {
+
+
+            SinglyLinkedList llist1 = new SinglyLinkedList();
+
+                llist1.insertNode(3);
+                llist1.insertNode(5);
+                llist1.insertNode(9);
+                llist1.insertNode(16);
+                
+                
+          
+          	SinglyLinkedList llist2 = new SinglyLinkedList();
+          	
+                llist2.insertNode(1);
+                llist2.insertNode(4);
+                llist2.insertNode(7);
+
+            SinglyLinkedListNode llist3 = mergeLists(llist1.head, llist2.head);
+            
+            System.out.println("Khatam");
+            printList(llist3, " ");
+        }
+
+    }
