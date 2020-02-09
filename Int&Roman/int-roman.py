@@ -1,3 +1,4 @@
+# My Approach
 class Solution:
 	def intToRoman(self,nums):
 		self.roman = {1:"I", 2:"II", 3: "III", 4:"IV", 5:"V", 6:"VI",
@@ -90,5 +91,47 @@ for a in asd:
         print(f"Failed: {r1} !={r2}, {a} ")
 
 
+# =============================================================================
+# # BEST APPROACH
+# =============================================================================
+    
+values = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
+romans = [ "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" ]    
 
+def intToRoman(nums):
+    answer = ''
+    i = 0
+    while nums:
+         # Check if "nums" fully divisible by current index value and 
+         # if it divisible it means that roman no. should be added to answer
+        answer = answer + (nums//values[i])*romans[i]      
+        
+        # reduce Nums value if "mod" exists.
+        nums = nums%values[i]
+        i=i+1
+    return answer
+        
 
+def romanToInt(s):
+    roman = { "I":1, "V":5,"X":10,"L":50,"C":100,"D":500,"M":1000 }
+    answer = 0
+    if len(s)<1:
+        return 0
+    for i in range(0,len(s)-1):
+        if roman[s[i]]<roman[s[i+1]]:
+            answer = answer-roman[s[i]]
+        else:
+            answer = answer+roman[s[i]]
+    return answer+roman[s[-1]]
+
+asd = [500,100,50,300,157,63,842,874,255,395,629,643,934,1994,58]
+
+for a in asd:
+    r1 = intToRoman(a)
+    r2 = romanToInt(r1)
+    if r2==a:
+        print(f"Passed: {r1} =={r2}, {a}")
+    else:
+        print(f"Failed: {r1} !={r2}, {a} ")
+        
+    
