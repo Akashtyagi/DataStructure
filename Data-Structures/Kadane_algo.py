@@ -20,7 +20,7 @@ This Algorithm works for circular and non-circular arrays.
 Approach:
     * For every index find prefix sum(all previous element + curr elem sum),
       rule is,
-        current sum = max(curr_elem,prefixsum_sofar+curr_elem)
+        current sum = max(curr_elem, prefixsum_sofar+curr_elem)
     
     * Also, keep track of maximum-sum-so far, as we keep finding prefix sum,
       we store, the max sum occured so far and the pointers where it ocuured.
@@ -29,6 +29,7 @@ Approach:
 '''      
 
 nums = [3,-2,2,9,-1,-14,5]
+# nums = [7,1,5,3,6,4]
 # nums = [-2,1,-3,4,-1,2,1,-5,4]
 # nums = [-2,-1]
 l = len(nums)
@@ -72,7 +73,7 @@ for i in range(1,l):
         fend = end        
 
 print(f"Max subrarray sum is {max_sum}")
-print(f"Max subarray is {nums[fstart:fend+1]} --Maybe Not working correctly")        
+print(f"Max subarray is {nums[fstart:fend+1]} -- Maybe Not working correctly")        
     
 '''
 In order to get circular subarray maximum.

@@ -7,5 +7,6 @@ Structures Covered so far:
 4. Heap
 5. Binary Tree
 6. Graph
+7. Dynamic Programming - Basics
 
 
