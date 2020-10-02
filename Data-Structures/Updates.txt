@@ -1,0 +1,12 @@
+Structures Covered so far:
+
+1. List
+2. Linked-List
+3. Stack
+4. Queue
+4. Heap
+5. Binary Tree
+6. Graph
+7. Dynamic Programming - Basics
+
+
